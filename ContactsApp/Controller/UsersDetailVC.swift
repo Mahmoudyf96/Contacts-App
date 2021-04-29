@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class UsersDetailVC: UIViewController {
+class UsersDetailVC: UIViewController, emailUpdatedDelegate {
     
     var user: User?
     
@@ -27,15 +27,34 @@ class UsersDetailVC: UIViewController {
         if let imageURL = URL(string: user.picture.large) {
             profileImage.kf.setImage(with: imageURL)
         }
-        profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
-        profileImage.layer.masksToBounds = false
-        profileImage.clipsToBounds = true
-        profileImage.layer.borderWidth = 1.0
+        profileImage.makeRounded()
         
         name.text = "\(user.name.title) \(user.name.first) \(user.name.last)"
+        
+        let country: String = user.location.country
+        
+        if country == "Canada" {
+            name.text = "🇨🇦 " + name.text!
+        } else if country == "Brazil" {
+            name.text = "🇧🇷 " + name.text!
+        } else if country == "Australia" {
+            name.text = "🇦🇺 " + name.text!
+        } else {
+            name.text = "🇫🇷 " + name.text!
+        }
+        
         email.text = "📧 " + user.email
         phoneNumber.text = "📱 " + user.phone
-        address.text = "🏡 \(user.location.street.number) \(user.location.street.name)\n\(user.location.city), \(user.location.state) \(user.location.postcode)"
+        
+        var postalCode: Any
+        
+        switch user.location.postcode {
+        case .int(let i):
+            postalCode = i
+        case .string(let s):
+            postalCode = s
+        }
+        address.text = "🏡 \(user.location.street.number) \(user.location.street.name)\n\(user.location.city), \(user.location.state) \(postalCode)"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -43,8 +62,17 @@ class UsersDetailVC: UIViewController {
         dateFormatter.dateStyle = .long
         
         birthday.text = "🎉 " + dateFormatter.string(from: birthDate!) + "     Age: \(user.dob.age)"
+        
+        UpdateEmailVC.delegate = self
     }
     
+    @IBAction func updateEmail(_ sender: UIButton) {
+        performSegue(withIdentifier: "toUpdateEmail", sender: self)
+    }
     
-
+    func emailUpdated(value: String) {
+        email.text = "📧 " + value
+    }
 }
+
+

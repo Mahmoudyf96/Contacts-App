@@ -25,7 +25,32 @@ struct Name: Codable {
 
 struct Location: Codable {
     var street: Street
-    var city, state, country, postcode: String
+    var city, state, country: String
+    var postcode: PostCode
+}
+
+enum PostCode: Codable {
+    case int(Int)
+    case string(String)
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .int(let x):
+            try container.encode(x)
+        case .string(let x):
+            try container.encode(x)
+        }
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        do {
+            self = .int(try container.decode(Int.self))
+        } catch DecodingError.typeMismatch {
+            self = .string(try container.decode(String.self))
+        }
+    }
 }
 
 struct Street: Codable {

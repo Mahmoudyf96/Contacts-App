@@ -11,39 +11,39 @@ import Kingfisher
 class ContactListVC: UITableViewController {
     
     var users = [User]()
+    var urlString: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let urlString = [
-            "https://randomuser.me/api/1.3/?results=150&nat=ca",
-            "https://randomuser.me/api/1.3/?results=150&nat=br",
-            "https://randomuser.me/api/1.3/?results=150&nat=au",
-            "https://randomuser.me/api/1.3/?results=150&nat=fr"
-        ]
         
+        let navItem = navigationController?.tabBarItem
         
-        if let url = URL(string: urlString[0]) {
+        if navItem?.title == "Canadian" {
+            urlString = "https://randomuser.me/api/1.3/?results=50&nat=ca"
+        } else if navItem?.title == "Brazilian" {
+            urlString = "https://randomuser.me/api/1.3/?results=50&nat=br"
+        } else if navItem?.title == "Australian" {
+            urlString = "https://randomuser.me/api/1.3/?results=50&nat=au"
+        } else if navItem?.title == "French" {
+            urlString = "https://randomuser.me/api/1.3/?results=50&nat=fr"
+        }
+        
+        if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
                 print("Data is parsing!")
-                parse(json: data)
+                parseJSON(json: data)
+            } else {
+                showError()
             }
         }
-    }
-    
-    func parse(json: Data) {
-        let decoder = JSONDecoder()
         
-        if let jsonUsers = try? decoder.decode(Users.self, from: json) {
-            users = jsonUsers.results
-            print("We got the Data!")
-            tableView.reloadData()
-        }
+        users = users.sorted { $0.name.first < $1.name.first }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
@@ -54,9 +54,7 @@ class ContactListVC: UITableViewController {
             cell.imageView?.kf.setImage(with: imageURL) { result in
                 cell.setNeedsLayout()
             }
-            cell.imageView?.layer.cornerRadius = 30
-            cell.imageView?.layer.masksToBounds = true
-            cell.imageView?.layer.borderWidth = 1.0
+            cell.imageView?.makeRounded()
         }
         
         cell.textLabel?.text = "\(user.name.title) \(user.name.first) \(user.name.last)"
@@ -68,14 +66,37 @@ class ContactListVC: UITableViewController {
         return cell
     }
     
+    //Passing Data from the contact list to the users detailed view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell {
-            let i = self.tableView.indexPath(for: cell)!.row
+            let selectedRow = self.tableView.indexPath(for: cell)!.row
             if segue.identifier == "toUserInfo" {
-                let vc = segue.destination as! UsersDetailVC
-                vc.user = users[i]
+                let destinationVC = segue.destination as! UsersDetailVC
+                destinationVC.user = users[selectedRow]
             }
         }
     }
+    
+    //Parsing JSON
+    func parseJSON(json: Data) {
+        let decoder = JSONDecoder()
+        
+        if let jsonUsers = try? decoder.decode(Users.self, from: json) {
+            users = jsonUsers.results
+            print("We got the Data!")
+            tableView.reloadData()
+        }
+    }
+    
+    //Error Alert
+    func showError() {
+        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the JSON Feed! Check your connection and try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
 }
+
+
+
+
 

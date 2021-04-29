@@ -20,6 +20,9 @@
 		C28C14452639FEA90021D7B6 /* UsersDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C14442639FEA90021D7B6 /* UsersDetailVC.swift */; };
 		C28C1453263A0F320021D7B6 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1452263A0F320021D7B6 /* Users.swift */; };
 		C28C1459263A244D0021D7B6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C28C1458263A244D0021D7B6 /* Kingfisher */; };
+		C28C1470263A6FB60021D7B6 /* UpdateEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C146F263A6FB60021D7B6 /* UpdateEmailVC.swift */; };
+		C28C147A263A822B0021D7B6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1479263A822B0021D7B6 /* Protocols.swift */; };
+		C28C1485263A90AD0021D7B6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1484263A90AD0021D7B6 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		C28C143C2639FE970021D7B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C28C14442639FEA90021D7B6 /* UsersDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailVC.swift; sourceTree = "<group>"; };
 		C28C1452263A0F320021D7B6 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Users.swift; path = ContactsApp/Users.swift; sourceTree = SOURCE_ROOT; };
+		C28C146F263A6FB60021D7B6 /* UpdateEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailVC.swift; sourceTree = "<group>"; };
+		C28C1479263A822B0021D7B6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		C28C1484263A90AD0021D7B6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				C28C14352639FE6F0021D7B6 /* App */,
+				C28C1479263A822B0021D7B6 /* Protocols.swift */,
 				C28C14362639FE780021D7B6 /* Controller */,
 				C28C143A2639FE7E0021D7B6 /* View */,
 				C28C143B2639FE850021D7B6 /* Model */,
 				C28C145D263A2F5E0021D7B6 /* Fonts */,
+				C28C1484263A90AD0021D7B6 /* Helper.swift */,
 				C28C140B2639FE5F0021D7B6 /* Assets.xcassets */,
 				C28C140D2639FE5F0021D7B6 /* LaunchScreen.storyboard */,
 				C28C14102639FE5F0021D7B6 /* Info.plist */,
@@ -152,8 +160,9 @@
 		C28C14362639FE780021D7B6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C28C14442639FEA90021D7B6 /* UsersDetailVC.swift */,
 				C28C14032639FE5C0021D7B6 /* ContactListVC.swift */,
+				C28C14442639FEA90021D7B6 /* UsersDetailVC.swift */,
+				C28C146F263A6FB60021D7B6 /* UpdateEmailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,9 +329,12 @@
 			files = (
 				C28C14452639FEA90021D7B6 /* UsersDetailVC.swift in Sources */,
 				C28C140A2639FE5C0021D7B6 /* ContactsApp.xcdatamodeld in Sources */,
+				C28C1470263A6FB60021D7B6 /* UpdateEmailVC.swift in Sources */,
+				C28C147A263A822B0021D7B6 /* Protocols.swift in Sources */,
 				C28C14042639FE5C0021D7B6 /* ContactListVC.swift in Sources */,
 				C28C14002639FE5C0021D7B6 /* AppDelegate.swift in Sources */,
 				C28C143D2639FE970021D7B6 /* User.swift in Sources */,
+				C28C1485263A90AD0021D7B6 /* Helper.swift in Sources */,
 				C28C14022639FE5C0021D7B6 /* SceneDelegate.swift in Sources */,
 				C28C1453263A0F320021D7B6 /* Users.swift in Sources */,
 			);

@@ -16,7 +16,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            
+            print("Creating the Tab Bar Items!")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let canadianVC = storyboard.instantiateViewController(withIdentifier: "NavController")
+            canadianVC.tabBarItem = UITabBarItem(title: "Canadian", image: UIImage(named: "canada")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "canadaClicked"))
+            let brazilianVC = storyboard.instantiateViewController(withIdentifier: "NavController")
+            brazilianVC.tabBarItem = UITabBarItem(title: "Brazilian", image: UIImage(named: "brazil")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "brazilClicked"))
+            let australianVC = storyboard.instantiateViewController(withIdentifier: "NavController")
+            australianVC.tabBarItem = UITabBarItem(title: "Australian", image: UIImage(named: "australia")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "australiaClicked"))
+            let frenchVC = storyboard.instantiateViewController(withIdentifier: "NavController")
+            frenchVC.tabBarItem = UITabBarItem(title: "French", image: UIImage(named: "france")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "franceClicked"))
+            tabBarController.viewControllers = [canadianVC, brazilianVC, australianVC, frenchVC]
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
