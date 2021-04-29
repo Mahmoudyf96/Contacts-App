@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C28C14002639FE5C0021D7B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C13FF2639FE5C0021D7B6 /* AppDelegate.swift */; };
 		C28C14022639FE5C0021D7B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C14012639FE5C0021D7B6 /* SceneDelegate.swift */; };
-		C28C14042639FE5C0021D7B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C14032639FE5C0021D7B6 /* ViewController.swift */; };
+		C28C14042639FE5C0021D7B6 /* ContactListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C14032639FE5C0021D7B6 /* ContactListVC.swift */; };
 		C28C14072639FE5C0021D7B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28C14052639FE5C0021D7B6 /* Main.storyboard */; };
 		C28C140A2639FE5C0021D7B6 /* ContactsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C28C14082639FE5C0021D7B6 /* ContactsApp.xcdatamodeld */; };
 		C28C140C2639FE5F0021D7B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28C140B2639FE5F0021D7B6 /* Assets.xcassets */; };
 		C28C140F2639FE5F0021D7B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28C140D2639FE5F0021D7B6 /* LaunchScreen.storyboard */; };
 		C28C141A2639FE600021D7B6 /* ContactsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C14192639FE600021D7B6 /* ContactsAppTests.swift */; };
 		C28C14252639FE600021D7B6 /* ContactsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C14242639FE600021D7B6 /* ContactsAppUITests.swift */; };
+		C28C143D2639FE970021D7B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C143C2639FE970021D7B6 /* User.swift */; };
+		C28C14452639FEA90021D7B6 /* UsersDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C14442639FEA90021D7B6 /* UsersDetailVC.swift */; };
+		C28C1453263A0F320021D7B6 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1452263A0F320021D7B6 /* Users.swift */; };
+		C28C1459263A244D0021D7B6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C28C1458263A244D0021D7B6 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,7 @@
 		C28C13FC2639FE5C0021D7B6 /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28C13FF2639FE5C0021D7B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C28C14012639FE5C0021D7B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C28C14032639FE5C0021D7B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C28C14032639FE5C0021D7B6 /* ContactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVC.swift; sourceTree = "<group>"; };
 		C28C14062639FE5C0021D7B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C28C14092639FE5C0021D7B6 /* ContactsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactsApp.xcdatamodel; sourceTree = "<group>"; };
 		C28C140B2639FE5F0021D7B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +55,9 @@
 		C28C14202639FE600021D7B6 /* ContactsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28C14242639FE600021D7B6 /* ContactsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsAppUITests.swift; sourceTree = "<group>"; };
 		C28C14262639FE600021D7B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C28C143C2639FE970021D7B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C28C14442639FEA90021D7B6 /* UsersDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailVC.swift; sourceTree = "<group>"; };
+		C28C1452263A0F320021D7B6 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Users.swift; path = ContactsApp/Users.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28C1459263A244D0021D7B6 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,10 +109,11 @@
 		C28C13FE2639FE5C0021D7B6 /* ContactsApp */ = {
 			isa = PBXGroup;
 			children = (
-				C28C13FF2639FE5C0021D7B6 /* AppDelegate.swift */,
-				C28C14012639FE5C0021D7B6 /* SceneDelegate.swift */,
-				C28C14032639FE5C0021D7B6 /* ViewController.swift */,
-				C28C14052639FE5C0021D7B6 /* Main.storyboard */,
+				C28C14352639FE6F0021D7B6 /* App */,
+				C28C14362639FE780021D7B6 /* Controller */,
+				C28C143A2639FE7E0021D7B6 /* View */,
+				C28C143B2639FE850021D7B6 /* Model */,
+				C28C145D263A2F5E0021D7B6 /* Fonts */,
 				C28C140B2639FE5F0021D7B6 /* Assets.xcassets */,
 				C28C140D2639FE5F0021D7B6 /* LaunchScreen.storyboard */,
 				C28C14102639FE5F0021D7B6 /* Info.plist */,
@@ -131,6 +140,48 @@
 			path = ContactsAppUITests;
 			sourceTree = "<group>";
 		};
+		C28C14352639FE6F0021D7B6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C28C13FF2639FE5C0021D7B6 /* AppDelegate.swift */,
+				C28C14012639FE5C0021D7B6 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C28C14362639FE780021D7B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C28C14442639FEA90021D7B6 /* UsersDetailVC.swift */,
+				C28C14032639FE5C0021D7B6 /* ContactListVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C28C143A2639FE7E0021D7B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C28C14052639FE5C0021D7B6 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C28C143B2639FE850021D7B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C28C143C2639FE970021D7B6 /* User.swift */,
+				C28C1452263A0F320021D7B6 /* Users.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C28C145D263A2F5E0021D7B6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +198,9 @@
 			dependencies = (
 			);
 			name = ContactsApp;
+			packageProductDependencies = (
+				C28C1458263A244D0021D7B6 /* Kingfisher */,
+			);
 			productName = ContactsApp;
 			productReference = C28C13FC2639FE5C0021D7B6 /* ContactsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +272,9 @@
 				Base,
 			);
 			mainGroup = C28C13F32639FE5C0021D7B6;
+			packageReferences = (
+				C28C1457263A244D0021D7B6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = C28C13FD2639FE5C0021D7B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,10 +318,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28C14452639FEA90021D7B6 /* UsersDetailVC.swift in Sources */,
 				C28C140A2639FE5C0021D7B6 /* ContactsApp.xcdatamodeld in Sources */,
-				C28C14042639FE5C0021D7B6 /* ViewController.swift in Sources */,
+				C28C14042639FE5C0021D7B6 /* ContactListVC.swift in Sources */,
 				C28C14002639FE5C0021D7B6 /* AppDelegate.swift in Sources */,
+				C28C143D2639FE970021D7B6 /* User.swift in Sources */,
 				C28C14022639FE5C0021D7B6 /* SceneDelegate.swift in Sources */,
+				C28C1453263A0F320021D7B6 /* Users.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +657,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C28C1457263A244D0021D7B6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C28C1458263A244D0021D7B6 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C28C1457263A244D0021D7B6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C28C14082639FE5C0021D7B6 /* ContactsApp.xcdatamodeld */ = {
