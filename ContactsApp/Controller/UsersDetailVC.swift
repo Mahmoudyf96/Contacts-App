@@ -11,6 +11,7 @@ import Kingfisher
 class UsersDetailVC: UIViewController, emailUpdatedDelegate {
     
     var user: User?
+    var selectedRow: Int?
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -22,6 +23,8 @@ class UsersDetailVC: UIViewController, emailUpdatedDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //print(selectedRow!)
+        
         guard let user = user else { return }
         
         if let imageURL = URL(string: user.picture.large) {
@@ -61,7 +64,7 @@ class UsersDetailVC: UIViewController, emailUpdatedDelegate {
         let birthDate = dateFormatter.date(from: user.dob.date)
         dateFormatter.dateStyle = .long
         
-        birthday.text = "🎉 " + dateFormatter.string(from: birthDate!) + "     Age: \(user.dob.age)"
+        birthday.text = "🎉 " + dateFormatter.string(from: birthDate!) + "     🎂 \(user.dob.age)"
         
         UpdateEmailVC.delegate = self
     }
@@ -71,7 +74,9 @@ class UsersDetailVC: UIViewController, emailUpdatedDelegate {
     }
     
     func emailUpdated(value: String) {
-        email.text = "📧 " + value
+        email.text = value
+        //print(selectedRow!)
+        ContactListVC.users[selectedRow!].email = value
     }
 }
 

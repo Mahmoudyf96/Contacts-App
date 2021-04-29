@@ -8,13 +8,15 @@
 import UIKit
 import Kingfisher
 
-class ContactListVC: UITableViewController {
+class ContactListVC: UITableViewController, emailUpdatedDelegate {
     
-    var users = [User]()
+    static var users = [User]()
     var urlString: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UpdateEmailVC.delegate = self
         
         let navItem = navigationController?.tabBarItem
         
@@ -28,27 +30,21 @@ class ContactListVC: UITableViewController {
             urlString = "https://randomuser.me/api/1.3/?results=50&nat=fr"
         }
         
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                print("Data is parsing!")
-                parseJSON(json: data)
-            } else {
-                showError()
-            }
-        }
+        downloadData(url: urlString)
+        ContactListVC.users = ContactListVC.users.sorted { $0.name.first < $1.name.first }
         
-        users = users.sorted { $0.name.first < $1.name.first }
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return ContactListVC.users.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
+        let user = ContactListVC.users[indexPath.row]
         
-        let user = users[indexPath.row]
         
         if let imageURL = URL(string: user.picture.medium) {
             cell.imageView?.kf.setImage(with: imageURL) { result in
@@ -57,13 +53,20 @@ class ContactListVC: UITableViewController {
             cell.imageView?.makeRounded()
         }
         
+        //Setting the users name
         cell.textLabel?.text = "\(user.name.title) \(user.name.first) \(user.name.last)"
         cell.textLabel?.font = UIFont(name: "Avenir Roman", size: 15)
         
+        //Setting the users email & phone number
         cell.detailTextLabel?.text = "\(user.email) - \(user.phone)"
         cell.detailTextLabel?.font = UIFont(name: "Avenir", size: 11)
         
         return cell
+    }
+    
+    func emailUpdated(value: String) {
+        tableView.reloadData()
+        print("data reloaded")
     }
     
     //Passing Data from the contact list to the users detailed view
@@ -72,20 +75,39 @@ class ContactListVC: UITableViewController {
             let selectedRow = self.tableView.indexPath(for: cell)!.row
             if segue.identifier == "toUserInfo" {
                 let destinationVC = segue.destination as! UsersDetailVC
-                destinationVC.user = users[selectedRow]
+                destinationVC.selectedRow = selectedRow
+                destinationVC.user = ContactListVC.users[selectedRow]
+            }
+        }
+    }
+    
+    
+    
+    //Downloading JSON data from an API, parsing it then appending it to our object
+    func downloadData(url: String) {
+        if let url = URL(string: url) {
+            if let data = try? Data(contentsOf: url) {
+                ContactListVC.users = parseJSON(json: data)
+                print("We got the data!")
+                tableView.reloadData()
+            } else {
+                showError()
             }
         }
     }
     
     //Parsing JSON
-    func parseJSON(json: Data) {
-        let decoder = JSONDecoder()
+    func parseJSON(json: Data) -> [User] {
+        let jsonDecoder = JSONDecoder()
         
-        if let jsonUsers = try? decoder.decode(Users.self, from: json) {
-            users = jsonUsers.results
-            print("We got the Data!")
-            tableView.reloadData()
+        do {
+            let parsedJSON = try jsonDecoder.decode(Users.self, from: json)
+            return parsedJSON.results
+        } catch {
+            print(error.localizedDescription)
         }
+        
+        return []
     }
     
     //Error Alert

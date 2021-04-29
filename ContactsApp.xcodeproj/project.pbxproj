@@ -23,6 +23,7 @@
 		C28C1470263A6FB60021D7B6 /* UpdateEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C146F263A6FB60021D7B6 /* UpdateEmailVC.swift */; };
 		C28C147A263A822B0021D7B6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1479263A822B0021D7B6 /* Protocols.swift */; };
 		C28C1485263A90AD0021D7B6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1484263A90AD0021D7B6 /* Helper.swift */; };
+		C28C149A263AD17C0021D7B6 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C28C1499263AD17C0021D7B6 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28C149A263AD17C0021D7B6 /* SwiftyJSON in Frameworks */,
 				C28C1459263A244D0021D7B6 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +211,7 @@
 			name = ContactsApp;
 			packageProductDependencies = (
 				C28C1458263A244D0021D7B6 /* Kingfisher */,
+				C28C1499263AD17C0021D7B6 /* SwiftyJSON */,
 			);
 			productName = ContactsApp;
 			productReference = C28C13FC2639FE5C0021D7B6 /* ContactsApp.app */;
@@ -283,6 +286,7 @@
 			mainGroup = C28C13F32639FE5C0021D7B6;
 			packageReferences = (
 				C28C1457263A244D0021D7B6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C28C1498263AD17B0021D7B6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = C28C13FD2639FE5C0021D7B6 /* Products */;
 			projectDirPath = "";
@@ -679,6 +683,14 @@
 				minimumVersion = 6.3.0;
 			};
 		};
+		C28C1498263AD17B0021D7B6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -686,6 +698,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C28C1457263A244D0021D7B6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C28C1499263AD17C0021D7B6 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C28C1498263AD17B0021D7B6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 
